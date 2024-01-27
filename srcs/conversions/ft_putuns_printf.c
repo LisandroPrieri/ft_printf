@@ -6,13 +6,13 @@
 /*   By: lprieri <lprieri@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/06 16:45:03 by lprieri       #+#    #+#                 */
-/*   Updated: 2024/01/22 11:44:31 by lisandro      ########   odam.nl         */
+/*   Updated: 2024/01/27 12:32:37 by lisandro      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../ft_printf.h"
 
-int	ft_putuns(unsigned int nbr)
+int	ft_putuns_printf(unsigned int nbr)
 {
 	int		len;
 	char	digit;

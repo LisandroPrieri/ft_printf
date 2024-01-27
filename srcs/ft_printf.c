@@ -6,27 +6,11 @@
 /*   By: lprieri <lprieri@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/11/03 14:31:17 by lprieri       #+#    #+#                 */
-/*   Updated: 2024/01/22 11:26:32 by lisandro      ########   odam.nl         */
+/*   Updated: 2024/01/27 12:34:20 by lisandro      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
-
-static int	ft_print_arg(const char *arg, va_list args);
-
-int	ft_printf(const char *arg, ...)
-{
-	va_list	args;
-	int		len;
-
-	va_start(args, arg);
-	len = 0;
-	if (!arg)
-		return (-1);
-	len += ft_print_arg(arg, args);
-	va_end(args);
-	return (len);
-}
 
 static int	ft_print_arg(const char *arg, va_list args)
 {
@@ -60,22 +44,36 @@ int	ft_conv_specifier(va_list args, const char c)
 
 	len = 0;
 	if (c == 'c')
-		len += ft_putchar(va_arg(args, int));
+		len += ft_putchar_printf(va_arg(args, int));
 	else if (c == 's')
-		len += ft_putstr(va_arg(args, char *));
+		len += ft_putstr_printf(va_arg(args, char *));
 	else if (c == 'p')
-		len += ft_putptr(va_arg(args, void *));
+		len += ft_putptr_printf(va_arg(args, void *));
 	else if (c == 'd' || c == 'i')
-		len += ft_putnbr(va_arg(args, int));
+		len += ft_putnbr_printf(va_arg(args, int));
 	else if (c == 'u')
-		len += ft_putuns(va_arg(args, unsigned int));
+		len += ft_putuns_printf(va_arg(args, unsigned int));
 	else if (c == 'x')
-		len += ft_puthex(va_arg(args, unsigned int), "0123456789abcdef");
+		len += ft_puthex_printf(va_arg(args, unsigned int), "0123456789abcdef");
 	else if (c == 'X')
-		len += ft_puthex(va_arg(args, unsigned long), "0123456789ABCDEF");
+		len += ft_puthex_printf(va_arg(args, unsigned int), "0123456789ABCDEF");
 	else if (c == '%')
-		len += ft_putchar('%');
+		len += ft_putchar_printf('%');
 	else
 		len = -1;
+	return (len);
+}
+
+int	ft_printf(const char *arg, ...)
+{
+	va_list	args;
+	int		len;
+
+	va_start(args, arg);
+	len = 0;
+	if (!arg)
+		return (-1);
+	len += ft_print_arg(arg, args);
+	va_end(args);
 	return (len);
 }

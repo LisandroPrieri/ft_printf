@@ -1,37 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_putnbr.c                                        :+:    :+:            */
+/*   ft_puthex.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lprieri <lprieri@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/12/06 16:44:48 by lprieri       #+#    #+#                 */
-/*   Updated: 2024/01/22 11:44:24 by lisandro      ########   odam.nl         */
+/*   Created: 2023/12/06 16:45:18 by lprieri       #+#    #+#                 */
+/*   Updated: 2024/01/27 12:32:24 by lisandro      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../ft_printf.h"
 
-int	ft_putnbr(int nbr)
+int	ft_puthex_printf(unsigned int nbr, char *base)
 {
-	long	n;
-	int		len;
+	unsigned long long	n;
+	int					len;
 
 	n = nbr;
 	len = 0;
-	if (n < 0)
+	if (n < 16)
+		len += ft_putchar(base[n]);
+	else
 	{
-		n = -n;
-		len += ft_putchar('-');
-	}
-	if (n == 0)
-		len += ft_putchar('0');
-	if (n > 0 && n < 10)
-		len += ft_putchar(n + '0');
-	if (n >= 10)
-	{
-		len += ft_putnbr(n / 10);
-		len += ft_putchar((n % 10) + '0');
+		len += ft_puthex(n / 16, base);
+		len += ft_putchar(base[n % 16]);
 	}
 	return (len);
 }

@@ -6,22 +6,22 @@
 #    By: lprieri <lprieri@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/12/05 13:25:32 by lprieri       #+#    #+#                  #
-#    Updated: 2024/01/22 12:33:20 by lisandro      ########   odam.nl          #
+#    Updated: 2024/01/27 12:37:13 by lisandro      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 
-SRC = src/ft_printf.c \
-		src/conversions/ft_putchar.c \
-		src/conversions/ft_putstr.c \
-		src/conversions/ft_putptr.c \
-		src/conversions/ft_putnbr.c \
-		src/conversions/ft_putuns.c \
-		src/conversions/ft_puthex.c \
+SRC = srcs/ft_printf.c \
+		srcs/conversions/ft_putchar_printf.c \
+		srcs/conversions/ft_putstr_printf.c \
+		srcs/conversions/ft_putptr_printf.c \
+		srcs/conversions/ft_putnbr_printf.c \
+		srcs/conversions/ft_putuns_printf.c \
+		srcs/conversions/ft_puthex_printf.c \
 		
 
-OBJ = $(SRC:src/%.c=obj/%.o)
+OBJ = $(SRC:srcs/%.c=objs/%.o)
 
 CC = cc
 
@@ -34,10 +34,10 @@ $(NAME): $(OBJ) ft_printf.h
 
 $(OBJ): $(SRC) ft_printf.h Makefile
 	@mkdir -p $(dir $@)
-	@$(CC) -c $(CFLAGS) $(@:obj/%.o=src/%.c) -o $@
+	@$(CC) -c $(CFLAGS) $(@:objs/%.o=srcs/%.c) -o $@
 
 clean:
-	@-rm -rf obj
+	@-rm -rf objs
 
 fclean: clean
 	@-rm -rf $(NAME)

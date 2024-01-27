@@ -6,7 +6,7 @@
 /*   By: lprieri <lprieri@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/11/03 15:17:36 by lprieri       #+#    #+#                 */
-/*   Updated: 2024/01/22 11:26:45 by lisandro      ########   odam.nl         */
+/*   Updated: 2024/01/27 12:32:57 by lisandro      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,11 @@ int	ft_conv_specifier(va_list args, const char c);
 int	ft_pos_specifier(va_list args, const char c);
 
 /* UTILS */
-int	ft_putstr(const char *str);
-int	ft_putchar(const char c);
-int	ft_putptr(void *ptr);
-int	ft_putnbr(int nbr);
-int	ft_putuns(unsigned int nbr);
-int	ft_puthex_ptr(unsigned long long nbr, char *base);
-int	ft_puthex(unsigned int nbr, char *base);
+int	ft_putstr_printf(const char *str);
+int	ft_putchar_printf(const char c);
+int	ft_putptr_printf(void *ptr);
+int	ft_putnbr_printf(int nbr);
+int	ft_putuns_printf(unsigned int nbr);
+int	ft_puthex_printf(unsigned int nbr, char *base);
 
 #endif

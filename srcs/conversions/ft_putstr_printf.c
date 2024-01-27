@@ -6,13 +6,13 @@
 /*   By: lprieri <lprieri@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/06 16:43:32 by lprieri       #+#    #+#                 */
-/*   Updated: 2024/01/22 11:44:28 by lisandro      ########   odam.nl         */
+/*   Updated: 2024/01/27 12:32:34 by lisandro      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../ft_printf.h"
 
-int	ft_putstr(const char *str)
+int	ft_putstr_printf(const char *str)
 {
 	int	len;
 

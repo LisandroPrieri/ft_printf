@@ -6,11 +6,11 @@
 /*   By: lprieri <lprieri@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/06 16:44:10 by lprieri       #+#    #+#                 */
-/*   Updated: 2023/12/06 16:51:42 by lprieri       ########   odam.nl         */
+/*   Updated: 2024/01/22 11:44:25 by lisandro      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "../../ft_printf.h"
 
 int	ft_putptr(void *ptr)
 {
@@ -34,17 +34,9 @@ int	ft_puthex_ptr(unsigned long long nbr, char *base)
 	int					len;
 
 	len = 0;
-	if (nbr < 0)
-	{
-		len += ft_putchar('-');
-		n = -nbr;
-	}
-	else
-		n = nbr;
-	if (n < 16 && n >= 0)
-	{
+	n = nbr;
+	if (n < 16)
 		len += ft_putchar(base[n]);
-	}
 	else
 	{
 		len += ft_puthex_ptr(n / 16, base);

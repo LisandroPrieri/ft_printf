@@ -6,7 +6,7 @@
 /*   By: lprieri <lprieri@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/11/03 15:17:36 by lprieri       #+#    #+#                 */
-/*   Updated: 2023/12/06 16:35:00 by lprieri       ########   odam.nl         */
+/*   Updated: 2024/01/22 11:26:45 by lisandro      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,6 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include <unistd.h>
-
-/* STRUCTS */
-
-typedef struct s_flags
-{
-	int	alt_form;
-	int	zero_padding;
-	int	left_adjusted;
-	int	space;
-	int	sign;
-	int	width;
-	int	precision;
-}	t_flags;
 
 /* FT_PRINTF */
 int	ft_printf(const char *arg, ...);

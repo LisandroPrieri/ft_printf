@@ -1,37 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_putnbr.c                                        :+:    :+:            */
+/*   ft_putuns.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lprieri <lprieri@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/12/06 16:44:48 by lprieri       #+#    #+#                 */
-/*   Updated: 2023/12/06 16:51:38 by lprieri       ########   odam.nl         */
+/*   Created: 2023/12/06 16:45:03 by lprieri       #+#    #+#                 */
+/*   Updated: 2024/01/22 11:44:31 by lisandro      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "../../ft_printf.h"
 
-int	ft_putnbr(int nbr)
+int	ft_putuns(unsigned int nbr)
 {
-	long	n;
 	int		len;
+	char	digit;
 
-	n = nbr;
 	len = 0;
-	if (n < 0)
+	digit = 0;
+	if (nbr == 0)
 	{
-		n = -n;
-		len += ft_putchar('-');
+		write (1, "0", 1);
+		len++;
 	}
-	if (n == 0)
-		len += ft_putchar('0');
-	if (n > 0 && n < 10)
-		len += ft_putchar(n + '0');
-	if (n >= 10)
+	if (nbr > 0 && nbr < 10)
 	{
-		len += ft_putnbr(n / 10);
-		len += ft_putchar((n % 10) + '0');
+		digit = nbr + '0';
+		write (1, &digit, 1);
+		len++;
+	}
+	if (nbr >= 10)
+	{
+		len += ft_putuns(nbr / 10);
+		digit = (nbr % 10) + '0';
+		write (1, &digit, 1);
+		len++;
 	}
 	return (len);
 }

@@ -6,24 +6,38 @@
 /*   By: lprieri <lprieri@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/11/03 14:31:17 by lprieri       #+#    #+#                 */
-/*   Updated: 2023/12/19 16:34:10 by lprieri       ########   odam.nl         */
+/*   Updated: 2024/01/22 11:26:32 by lisandro      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf.h"
+
+static int	ft_print_arg(const char *arg, va_list args);
 
 int	ft_printf(const char *arg, ...)
 {
 	va_list	args;
+	int		len;
+
+	va_start(args, arg);
+	len = 0;
+	if (!arg)
+		return (-1);
+	len += ft_print_arg(arg, args);
+	va_end(args);
+	return (len);
+}
+
+static int	ft_print_arg(const char *arg, va_list args)
+{
 	int		i;
 	int		len;
 	int		conv;
 
-	va_start(args, arg);
 	i = 0;
 	len = 0;
 	conv = 0;
-	while (arg[i])
+	while (arg && arg[i])
 	{
 		if (arg[i] == '%')
 		{
@@ -37,7 +51,6 @@ int	ft_printf(const char *arg, ...)
 			len += ft_putchar(arg[i]);
 		i++;
 	}
-	va_end(args);
 	return (len);
 }
 

@@ -1,41 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_putuns.c                                        :+:    :+:            */
+/*   ft_puthex.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lprieri <lprieri@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/12/06 16:45:03 by lprieri       #+#    #+#                 */
-/*   Updated: 2023/12/06 16:51:49 by lprieri       ########   odam.nl         */
+/*   Created: 2023/12/06 16:45:18 by lprieri       #+#    #+#                 */
+/*   Updated: 2024/01/22 11:44:21 by lisandro      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "../../ft_printf.h"
 
-int	ft_putuns(unsigned int nbr)
+int	ft_puthex(unsigned int nbr, char *base)
 {
-	int		len;
-	char	digit;
+	unsigned long long	n;
+	int					len;
 
+	n = nbr;
 	len = 0;
-	digit = 0;
-	if (nbr == 0)
+	if (n < 16)
+		len += ft_putchar(base[n]);
+	else
 	{
-		write (1, "0", 1);
-		len++;
-	}
-	if (nbr > 0 && nbr < 10)
-	{
-		digit = nbr + '0';
-		write (1, &digit, 1);
-		len++;
-	}
-	if (nbr >= 10)
-	{
-		len += ft_putuns(nbr / 10);
-		digit = (nbr % 10) + '0';
-		write (1, &digit, 1);
-		len++;
+		len += ft_puthex(n / 16, base);
+		len += ft_putchar(base[n % 16]);
 	}
 	return (len);
 }

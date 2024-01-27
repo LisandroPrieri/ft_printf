@@ -6,7 +6,7 @@
 /*   By: lprieri <lprieri@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/11/03 14:31:17 by lprieri       #+#    #+#                 */
-/*   Updated: 2024/01/27 12:34:20 by lisandro      ########   odam.nl         */
+/*   Updated: 2024/01/27 12:38:33 by lisandro      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static int	ft_print_arg(const char *arg, va_list args)
 			len += conv;
 		}
 		else
-			len += ft_putchar(arg[i]);
+			len += ft_putchar_printf(arg[i]);
 		i++;
 	}
 	return (len);

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_putuns.c                                        :+:    :+:            */
+/*   ft_putuns_printf.c                                 :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lprieri <lprieri@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/06 16:45:03 by lprieri       #+#    #+#                 */
-/*   Updated: 2024/01/27 12:32:37 by lisandro      ########   odam.nl         */
+/*   Updated: 2024/01/27 12:38:58 by lisandro      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	ft_putuns_printf(unsigned int nbr)
 	}
 	if (nbr >= 10)
 	{
-		len += ft_putuns(nbr / 10);
+		len += ft_putuns_printf(nbr / 10);
 		digit = (nbr % 10) + '0';
 		write (1, &digit, 1);
 		len++;

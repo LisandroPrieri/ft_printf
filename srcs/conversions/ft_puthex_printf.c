@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_puthex.c                                        :+:    :+:            */
+/*   ft_puthex_printf.c                                 :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lprieri <lprieri@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/06 16:45:18 by lprieri       #+#    #+#                 */
-/*   Updated: 2024/01/27 12:32:24 by lisandro      ########   odam.nl         */
+/*   Updated: 2024/01/27 12:39:43 by lisandro      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ int	ft_puthex_printf(unsigned int nbr, char *base)
 	n = nbr;
 	len = 0;
 	if (n < 16)
-		len += ft_putchar(base[n]);
+		len += ft_putchar_printf(base[n]);
 	else
 	{
-		len += ft_puthex(n / 16, base);
-		len += ft_putchar(base[n % 16]);
+		len += ft_puthex_printf(n / 16, base);
+		len += ft_putchar_printf(base[n % 16]);
 	}
 	return (len);
 }

@@ -6,7 +6,7 @@
 /*   By: lprieri <lprieri@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/11/03 15:17:36 by lprieri       #+#    #+#                 */
-/*   Updated: 2024/01/27 12:32:57 by lisandro      ########   odam.nl         */
+/*   Updated: 2024/01/27 12:41:31 by lisandro      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@
 /* FT_PRINTF */
 int	ft_printf(const char *arg, ...);
 int	ft_conv_specifier(va_list args, const char c);
-int	ft_pos_specifier(va_list args, const char c);
 
 /* UTILS */
 int	ft_putstr_printf(const char *str);
